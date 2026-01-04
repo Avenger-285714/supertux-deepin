@@ -1,0 +1,90 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: Fix spelling errors found by lintian
+Forwarded: https://github.com/SuperTux/supertux/pull/2271
+
+--- a/external/tinygettext/include/tinygettext/language.hpp
++++ b/external/tinygettext/include/tinygettext/language.hpp
+@@ -52,7 +52,7 @@
+   /** Create a language from an environment variable style string (e.g de_DE.UTF-8@modifier) */
+   static Language from_env(const std::string& env);
+ 
+-  /** Compares two Languages, returns 0 on missmatch and a score
++  /** Compares two Languages, returns 0 on mismatch and a score
+       between 1 and 9 on match, the higher the score the better the
+       match */
+   static int match(const Language& lhs, const Language& rhs);
+--- a/external/tinygettext/src/po_parser.cpp
++++ b/external/tinygettext/src/po_parser.cpp
+@@ -175,7 +175,7 @@
+   else
+   {
+     if (pedantic)
+-      warning("keyword and string must be seperated by a single space");
++      warning("keyword and string must be separated by a single space");
+ 
+     for(;;)
+     {
+@@ -277,7 +277,7 @@
+           {
+             if (dict.get_plural_forms() != plural_forms)
+             {
+-              warning("Plural-Forms missmatch between .po file and dictionary");
++              warning("Plural-Forms mismatch between .po file and dictionary");
+             }
+           }
+         }
+--- a/src/supertux/levelset_screen.cpp
++++ b/src/supertux/levelset_screen.cpp
+@@ -81,7 +81,7 @@
+     m_level_started = true;
+ 
+     if (Editor::is_active()) {
+-      log_warning << "Editor is still active, quiting Levelset screen" << std::endl;
++      log_warning << "Editor is still active, quitting Levelset screen" << std::endl;
+       ScreenManager::current()->pop_screen();
+     } else {
+       auto screen = std::make_unique<GameSession>(FileSystem::join(m_basedir, m_level_filename),
+--- a/src/gui/menu_paths.cpp
++++ b/src/gui/menu_paths.cpp
+@@ -36,7 +36,7 @@
+       } else {
+         log_warning << "Could not copy path, misses " << (from ? "" : "'from'")
+                     << (into ? "" : "'into'") << std::endl;
+-        Dialog::show_message(_("An error occured and the game could\nnot clone the path. Please contact\nthe developers for support."));
++        Dialog::show_message(_("An error occurred and the game could\nnot clone the path. Please contact\nthe developers for support."));
+       }
+     });
+     dialog->add_button(_("Bind"), [path, &target] {
+--- a/src/interface/control_enum.hpp
++++ b/src/interface/control_enum.hpp
+@@ -263,7 +263,7 @@
+     bool currently_on_first = true;
+     T last_value = *m_value; // must assign a value else clang will complain
+ 
+-    // Hacky way to get the preceeding one in the list
++    // Hacky way to get the preceding one in the list
+     for (const auto& option : m_options) {
+       if (option.first == *m_value) {
+         if (currently_on_first) {
+--- a/src/object/path.hpp
++++ b/src/object/path.hpp
+@@ -50,7 +50,7 @@
+   {
+   public:
+     Vector position; /**< the position of this node */
+-    Vector bezier_before; /**< the position of the bezier handle towards the preceeding node */
++    Vector bezier_before; /**< the position of the bezier handle towards the preceding node */
+     Vector bezier_after; /**< the position of the bezier handle towards the following node */
+     float time; /**< time (in seconds) to get from this node to next node */
+     float speed; /**< speed (in px/seconds); editor use only */
+--- a/src/scripting/functions.cpp
++++ b/src/scripting/functions.cpp
+@@ -91,7 +91,7 @@
+ 
+   if (session->get_current_level().m_is_in_cutscene)
+   {
+-    log_warning << "start_cutscene(): starting a new cutscene above another one, ending preceeding cutscene (use end_cutscene() in scripts!)" << std::endl;
++    log_warning << "start_cutscene(): starting a new cutscene above another one, ending preceding cutscene (use end_cutscene() in scripts!)" << std::endl;
+ 
+     // Remove all sounds that started playing while skipping
+     if (session->get_current_level().m_skip_cutscene)

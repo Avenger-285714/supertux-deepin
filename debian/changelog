@@ -1,5 +1,366 @@
-template-repository (1.0-1) unstable; urgency=medium
+supertux (0.6.3-4) unstable; urgency=medium
 
-  * Initial release
+  * Fix FTBFS with cmake 4. (Closes: #1113549)
+  * Bump Standards-Version to 4.7.2.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Vincent Cheng <vcheng@debian.org>  Fri, 26 Sep 2025 19:27:25 -0700
+
+supertux (0.6.3-3) unstable; urgency=medium
+
+  [ Patrice Duroux ]
+  * Improve d/watch file. (Closes: #1038393)
+
+  [ Vincent Cheng ]
+  * Update obsolete build-deps flagged by lintian.
+  * Bump Standards-Version to 4.7.0.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 30 Nov 2024 20:20:04 -0800
+
+supertux (0.6.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * Import patch to fix FTBFS with gcc 12. (Closes: #1013045)
+  * Bump Standards-Version to 4.6.1.
+  * Fix additional spelling errors found by lintian.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 30 Jul 2022 15:34:43 +0200
+
+supertux (0.6.3-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release. (Closes: #1005373)
+  * Refresh patches.
+  * Update watch file to match source tarball.
+  * Symlink fonts available as packages.
+  * Add missing build dependencies: libfribidi-dev, libglm-dev,
+    libharfbuzz-dev, zlib1g-dev.
+  * Make sure that system physfs is used for building.
+  * Build with BUILD_RPATH_USE_ORIGIN to use relative build paths
+    This fixes reproducibility with varying paths.
+  * Bump Standards-Version to 4.6.0.
+  * Update copyrights.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Mon, 21 Feb 2022 22:27:05 +0100
+
+supertux (0.6.2-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+    - Drop patches applied upstream
+  * Bump debhelper compat level to 13.
+  * Bump Standards-Version to 4.5.0.
+  * Update d/copyright.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 16 May 2020 16:43:17 +0200
+
+supertux (0.6.1.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix build failure on big-endian architectures.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Mon, 06 Jan 2020 12:35:26 +0100
+
+supertux (0.6.1.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Mark supertux-data as Multi-Arch: foreign.
+  * Bump Standards-Version to 4.4.1.
+  * Improve reproducibility by removing embedded build path.
+  * Use new IS_SUPERTUX_RELEASE cmake flag for choosing the menu logo.
+  * Don't regenerate version.cmake when a git directory was detected.
+  * Fix detection of system physfs.
+  * Add correct copyright of appdata file.
+  * Document copyright of new levels.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Mon, 06 Jan 2020 01:18:19 +0100
+
+supertux (0.6.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Christoph Egger ]
+  * Remove myself from uploaders.
+
+  [ Reiner Herrmann ]
+  * New upstream release. (Closes: #917268)
+    - Fixes FTBFS. (Closes: #917508)
+  * Fix sorting of alpha/beta versions in watch file (Closes: #918721)
+  * d/control:
+    - Update homepage.
+    - Depend on debhelper-compat and update to compat level 12.
+    - Declare that debian/rules does not require root.
+    - Bump Standards-Version to 4.3.0.
+    - Drop shlibs:Depends from data package.
+    - Drop outdated Vcs fields.
+    - Update build dependencies.
+  * d/rules:
+    - Build with all hardening options.
+    - Reduce list of cleaned up directories.
+  * Fix spelling errors found by lintian.
+  * Update installed directories.
+  * Fix upstream version detection.
+  * Drop unnecessary debian/clean.
+  * Convert d/copyright to machine readable format and update it.
+  * Exclude libraqm, glew-2.1.0 and some prebuilt files from orig tarball.
+  * Add upstream metadata.
+
+  [ Markus Koschany ]
+  * Install supertux icon into hicolor icon directory.
+  * Add canonical VCS fields.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 13 Jan 2019 14:35:08 +0100
+
+supertux (0.5.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 05 Nov 2016 15:51:39 -0700
+
+supertux (0.5.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Add build-dep on libboost-{date-time,filesystem,system}-dev.
+  * Fix appstream metadata. (LP: #1560550)
+  * Bump standards version to 3.9.8.
+  * Update watch file.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sun, 25 Sep 2016 20:03:17 -0700
+
+supertux (0.4.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Remove all patches; applied upstream or obsolete.
+  * Remove debian/menu file as per tech-ctte decision in #741573.
+  * Update Homepage field in d/control.
+  * Update debian/watch to point to correct upstream tarball.
+
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 21 Dec 2015 14:54:44 -0800
+
+supertux (0.3.5a-2) unstable; urgency=medium
+
+  * Fix FTBFS on big-endian archs. Thanks to Fabian Greffrath for the patch!
+    (Closes: #787698)
+  * Install high resolution icon. (Closes: #794358)
+
+ -- Vincent Cheng <vcheng@debian.org>  Thu, 20 Aug 2015 01:07:00 -0700
+
+supertux (0.3.5a-1) unstable; urgency=medium
+
+  * Upload to unstable. (Closes: #720108)
+  * New upstream release. (Closes: #785686)
+    - Add build-dep on libsdl2-dev, libsdl2-image-dev, pkg-config,
+      libvorbis-dev; drop build-dep on libsdl-image1.2-dev,
+      libsdl-mixer1.2-dev, libsdl1.2-dev.
+  * Refresh existing patches.
+  * Drop "--disable-sfx --disable-music" args in supertux menu file; sound
+    effects and music are no longer excluded due to DFSG incompatibility.
+  * Update debian/copyright.
+  * Fix lintian warning script-not-executable. (LP: #1385675)
+  * Bump standards version to 3.9.6.
+  * Update watch file.
+  * Update my email address.
+
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 01 Jun 2015 22:48:24 -0700
+
+supertux (0.3.4-1) experimental; urgency=low
+
+  * New upstream release.
+    - Remove patches applied upstream:
+      fix_{man_page,curl_ftbfs,gcc{4.6,4.7}_ftbfs,joystick_conf_loss}.patch
+    - Refresh remaining patches.
+  * Remove unnecessary Build-Conflicts field.
+  * Remove unused lintian override.
+  * Update watch file (thanks to Bart Martens).
+
+ -- Vincent Cheng <Vincentc1208@gmail.com>  Tue, 20 Aug 2013 01:04:26 -0700
+
+supertux (0.3.3-6) experimental; urgency=low
+
+  * Add debian/patches/fix_joystick_conf_loss.patch: stop overwriting user's
+    joystick configuration with default values when joystick is not plugged in.
+    (Closes: #706564)
+  * Fix vcs-field-not-canonical.
+  * Bump standards version from 3.9.3 to 3.9.4.
+
+ -- Vincent Cheng <Vincentc1208@gmail.com>  Thu, 23 May 2013 02:52:12 -0700
+
+supertux (0.3.3-5) experimental; urgency=low
+
+  * Add debian/patches/fix_gcc4.7_ftbfs.patch to fix FTBFS with gcc 4.7.
+   (Closes: #671538)
+
+ -- Vincent Cheng <Vincentc1208@gmail.com>  Fri, 04 May 2012 14:23:56 -0700
+
+supertux (0.3.3-4) experimental; urgency=low
+
+  * Add myself to Uploaders.
+  * Bump standards version from 3.8.4 to 3.9.3.
+  * Bump debian compat level from 7 to 9.
+  * Remove explicit b-d on quilt; also remove --with-quilt call in
+    debian/rules and unneeded debian/README.source.
+  * Add DEP-3 headers to included patches.
+  * Add debian/patches/fix-{desktop_file,spelling_errors}.patch to fix
+    minor issues found by lintian.
+  * Split debian-changes patch into separate patches.
+  * Update Vcs-Browser link.
+  * Update package descriptions with version in unstable.
+  * Tighten dependency on supertux-data. (Closes: #577223)
+  * Add "Suggests: supertux" field to supertux-data in debian/control.
+  * Remove redundant debian/supertux.6; upstream already includes a manpage.
+  * Fix path to xpm icon mentionned in debian/supertux.lintian-overrides.
+  * Install WHATSNEW.txt as upstream changelog.
+
+ -- Vincent Cheng <Vincentc1208@gmail.com>  Sun, 01 Apr 2012 00:50:03 -0700
+
+supertux (0.3.3-3) experimental; urgency=low
+
+  * Import patch by Ilya Barygin <barygin@gmail.com> to fix building
+    with gcc-4.6 (Closes: #640192)
+
+ -- Christoph Egger <christoph@debian.org>  Tue, 11 Oct 2011 22:33:04 +0200
+
+supertux (0.3.3-2) experimental; urgency=low
+
+  * Build-depend un libcurl-dev to make add-ons work
+  * Install the desktop file
+
+ -- Christoph Egger <christoph@debian.org>  Wed, 17 Mar 2010 09:43:49 +0100
+
+supertux (0.3.3-1) experimental; urgency=low
+
+  [ Jon Dowland ]
+  * update menu section to "Games/Action" for menu policy transition.
+    Thanks Linas Žvirblis.
+
+  [ Cyril Brulebois ]
+  * Added Vcs-Svn and Vcs-Browser fields in the control file.
+  * Dropped Gürkan Sengün from Uploaders since he doesn't want to package this
+    game anymore. Thanks for the initial effort.
+
+  [ Jon Dowland ]
+  * add Homepage: control field to source stanza
+
+  [ Ansgar Burchardt ]
+  * Remove Homepage semi-field from description
+
+  [ Peter De Wachter ]
+  * Added watch file.
+
+  [ Christoph Egger ]
+  * Drop Cyril Brulebois from uploaders on his request
+  * Clean up build system using dh7 autofoo
+  * Bump compat to 7
+  * Add quilt patch system
+  * Adopt build system to upstream supertux -> supertux2 rename
+  * New upstream Release
+    * Update yopright
+  * Adopting by the Debian Games Team (Closes: #535147)
+  * Add myself to Uploaders
+  * Bump Standards Version from 3.7.2 to 3.8.4
+    * Add README.source
+    * Wrap Uploaders
+  * Update Homepage field
+
+ -- Christoph Egger <christoph@debian.org>  Thu, 04 Mar 2010 15:46:56 +0100
+
+supertux (0.3.0~dfsg-1) experimental; urgency=low
+
+  * New upstream release (Closes: #404676).
+  * Ack previous NMU, thanks to Martin Michlmayr.
+  * Licensing:
+     - Updated copyright by diffing both 0.1.3 and 0.3.0 upstream tarballs,
+       added missing GPL headers, updated author and contributor lists.
+     - DFSGified version by removing data/sound and data/music from the
+       upstream tarball since the licenses are not clear for those files. The
+       upstream authors are clarifying this on a wiki page, so we hope we'll
+       be able to release a 0.3.0-1 version with all DFSG-free content (thus
+       the choice of the tilde a DFSG separator).
+     - Added both --disable-sfx and --disable-music options to the command in
+       the desktop and the menu files accordingly.
+  * Set Maintainer field to `pkg-games-devel'. Added myself as an Uploader.
+  * Added a B-D on libphysfs-dev and libopenal-dev.
+  * Added a B-D on jam, and changed $(MAKE) to jam accordingly in
+    debian/rules.
+  * Added a build conflict against nvidia-glx-legacy.
+  * Adapted install rule, using jam's -sprefix option.
+  * Added a dh_desktop call.
+  * Adapted dh_install* parameters:
+     - removed `ChangeLog'
+  * Removed from debian/docs:
+     - NEWS
+     - TODO
+     - LEVELDESIGN
+     - AUTHORS
+  * Removed some manuals `cp', but added one to handle the .desktop file,
+    waiting for a better solution.
+  * Updated versioned dependency on the data package.
+  * Updated debian/menu icon path as well as the .desktop one.
+    (Closes: #341432, #394222)
+  * Made use of .install files and -i/-a parameters to build the packages
+    correctly.
+  * Bumped Standards-Version from 3.6.2 to 3.7.2 (no change needed).
+  * Bumped debhelper compatibility from 4 to 5 (no change needed).
+  * Updated manpage and fixed dieresis troubles. Also added a KNOWN BUGS
+    section pointing to a thread of the debian-devel-games list.
+  * Updated the long description to reflect that OpenGL is now required.
+
+ -- Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>  Mon,  1 Jan 2007 02:09:53 +0100
+
+supertux (0.1.3-1.1) unstable; urgency=low
+
+  * NMU as part of the GCC 4.1 transition.
+  * Remove extra qualification from C++ header file. (closes: #356228)
+
+ -- Martin Michlmayr <tbm@cyrius.com>  Thu, 25 May 2006 18:26:50 +0200
+
+supertux (0.1.3-1) unstable; urgency=low
+
+  * New upstream version.
+  * Bump Standards-Version.
+  * G++ transition upload. Fixes in Build-Depends line to ensure we'll use
+    correct dependencies.
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Sun, 10 Jul 2005 19:49:12 +0200
+
+supertux (0.1.2-4) unstable; urgency=high
+
+  * Urgency high cause we really need this fix in sarge.
+  * Rebuilding without presence of nvidia-glx. (Closes: #282071, #285946)
+  * Added Build-Conflicts: nvidia-glx, to avoid similar situations
+    in the future.
+  * Added myself to Uploaders.
+
+ -- Bartosz Fenski <fenio@debian.org>  Wed, 16 Feb 2005 11:55:13 +0100
+
+supertux (0.1.2-3) unstable; urgency=low
+
+  * Added icon to menu. (closes: #275593)
+  * Cleaned debian/{rules,copyright}
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Wed, 20 Oct 2004 13:27:22 +0200
+
+supertux (0.1.2-2) unstable; urgency=low
+
+  * Add versioning to leveldata depends.
+  * Fix copying missing file in debian/rules. (Closes: 273545).
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Mon, 27 Sep 2004 00:17:26 +0200
+
+supertux (0.1.2-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Wed, 25 Aug 2004 23:49:00 +0200
+
+supertux (0.1.1-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Thu, 13 May 2004 22:41:39 +0200
+
+supertux (0.1.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Gürkan Sengün <gurkan@linuks.mine.nu>  Thu,  6 May 2004 10:36:38 +0200

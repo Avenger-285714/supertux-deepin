@@ -1,4 +1,33 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# Fix FTBFS with cmake 4. Invoking dh_auto_configure -- -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+# isn't sufficient since that only appears to apply to top-level CMakeLists.txt.
+# Should be made redundant on next upstream release, remove when that's packaged.
+export CMAKE_POLICY_VERSION_MINIMUM = 3.5
+
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DBUILD_SHARED_LIBS=OFF \
+	                     -DCMAKE_BUILD_RPATH_USE_ORIGIN=ON \
+	                     -DENABLE_BOOST_STATIC_LIBS=OFF \
+	                     -DUSE_SYSTEM_PHYSFS=ON \
+	                     -DIS_SUPERTUX_RELEASE=ON
+
+override_dh_install:
+	# Fix lintian warning script-not-executable
+	chmod +x $(CURDIR)/debian/tmp/usr/share/games/supertux2/sounds/normalize.sh
+	# Remove unneeded files
+	rm -rf $(CURDIR)/debian/tmp/usr/share/doc/supertux2
+	cp $(CURDIR)/data/images/engine/icons/supertux-256x256.png supertux.png
+	dh_install --exclude=COPYING
+
+override_dh_installchangelogs:
+	dh_installchangelogs NEWS.md
+
+override_dh_clean:
+	dh_clean
+	$(RM) supertux.png

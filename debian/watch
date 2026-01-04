@@ -1,0 +1,5 @@
+version=4
+#https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz
+#      //github.com/SuperTux/supertux/releases/download/SuperTux-v0.6.3-Source.tar.gz
+opts="uversionmangle=s/-rc/~rc/;s/-alpha/~alpha/;s/-beta/~beta/, downloadurlmangle=s%archive/refs/tags/v?(@ANY_VERSION@).tar.gz%releases/download/v$1/SuperTux-v$1-Source.tar.gz%, filenamemangle=s%(?:.*?)?v?@ANY_VERSION@(@ARCHIVE_EXT@)%@PACKAGE@-$1$2%" \
+https://github.com/SuperTux/@PACKAGE@/tags (?:.*?/)?v?@ANY_VERSION@@ARCHIVE_EXT@

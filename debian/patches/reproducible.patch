@@ -1,0 +1,27 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: remove code that embeds the build path
+ Embedding the build path (BUILD_DATA_DIR, BUILD_CONFIG_DATA_DIR) into the
+ binary makes the build unreproducible.
+ The small check was only needed for running supertux from within the source
+ directory. As this does not make sense for the distributed packages, this can
+ be safely removed.
+ If you are working on the code and need to run supertux from the source
+ directory, either set SUPERTUX2_DATA_DIR or unapply this patch.
+Forwarded: not-needed
+
+--- a/src/supertux/main.cpp
++++ b/src/supertux/main.cpp
+@@ -204,13 +204,6 @@
+     std::string basepath = basepath_c ? basepath_c : "./";
+     SDL_free(basepath_c);
+ 
+-    if (FileSystem::exists(FileSystem::join(BUILD_DATA_DIR, "credits.stxt")))
+-    {
+-      datadir = BUILD_DATA_DIR;
+-      // Add config dir for supplemental files
+-      PHYSFS_mount(boost::filesystem::canonical(BUILD_CONFIG_DATA_DIR).string().c_str(), nullptr, 1);
+-    }
+-    else
+     {
+       // if the game is not run from the source directory, try to find
+       // the global install location
